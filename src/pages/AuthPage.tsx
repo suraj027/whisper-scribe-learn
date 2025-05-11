@@ -16,6 +16,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { toast } from '@/components/ui/use-toast'; // Assuming you have a toast component
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 
@@ -75,6 +76,27 @@ const AuthPage: React.FC = () => {
     }
   };
 
+  // Handle Google Sign-In
+  const handleGoogleSignIn = async () => {
+    try {
+      setIsSubmitting(true);
+      const userCredential = await signInWithGoogle();
+      // The signed-in user info.
+      const user = userCredential.user;
+      console.log("User signed in with Google:", user);
+      // Optionally display a success toast
+      toast({
+        title: "Signed in successfully!",
+        description: `Welcome, ${user.displayName || user.email}.`,
+      });
+    } catch (error: any) {
+      console.error("Google Sign-In error:", error);
+      // Display an error toast
+      toast({ title: "Google Sign-In Failed", description: error.message, variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   // Handle registration form submission
   const handleRegister = async (values: RegisterFormValues) => {
     try {
@@ -170,7 +192,7 @@ const AuthPage: React.FC = () => {
                   type="button" 
                   variant="outline" 
                   className="w-full" 
-                  onClick={signInWithGoogle}
+                  onClick={handleGoogleSignIn}
                   disabled={isSubmitting}
                 >
                   <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
@@ -287,7 +309,7 @@ const AuthPage: React.FC = () => {
                   type="button" 
                   variant="outline" 
                   className="w-full" 
-                  onClick={signInWithGoogle}
+                  onClick={handleGoogleSignIn}
                   disabled={isSubmitting}
                 >
                   <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
