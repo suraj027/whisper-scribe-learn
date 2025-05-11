@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import { AuthProvider, RequireAuth } from './context/AuthContext';
 
-import AuthPage from "./pages/AuthPage";
+import Index from "./pages/Index";
 import DashboardPage from "./pages/DashboardPage";
 import UploadPage from "./pages/UploadPage";
 import DocumentPage from "./pages/DocumentPage";
@@ -22,7 +22,7 @@ const App = () => (
     <TooltipProvider>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<AuthPage />} />
+          <Route path="/" element={<Index />} />
           
           {/* Protected routes */}
           <Route path="/dashboard" element={
