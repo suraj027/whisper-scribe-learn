@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -265,7 +264,7 @@ const UploadPage: React.FC = () => {
                 </AlertDescription>
               </Alert>
               
-              <Alert variant="outline">
+              <Alert variant="default">
                 <Info className="h-4 w-4" />
                 <AlertTitle>Google Docs Integration</AlertTitle>
                 <AlertDescription>

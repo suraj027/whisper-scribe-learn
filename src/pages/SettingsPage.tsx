@@ -20,7 +20,7 @@ import {
 } from '@/components/ui/form';
 import { Switch } from '@/components/ui/switch';
 import AppLayout from '@/components/layout/AppLayout';
-import { AlertCircle, Check, Google, Key, UserCog } from 'lucide-react';
+import { AlertCircle, Check, Key, UserCog, Globe } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 // Form schemas
@@ -132,7 +132,7 @@ const SettingsPage: React.FC = () => {
               API Keys
             </TabsTrigger>
             <TabsTrigger value="integrations">
-              <Google className="h-4 w-4 mr-2" />
+              <Globe className="h-4 w-4 mr-2" />
               Integrations
             </TabsTrigger>
           </TabsList>
@@ -310,7 +310,7 @@ const SettingsPage: React.FC = () => {
                           <div className="flex flex-row items-center justify-between rounded-lg border p-4">
                             <div className="space-y-0.5">
                               <FormLabel className="text-base flex items-center">
-                                <Google className="h-5 w-5 mr-2 text-blue-600" />
+                                <Globe className="h-5 w-5 mr-2 text-blue-600" />
                                 Google Drive
                               </FormLabel>
                               <FormDescription>
