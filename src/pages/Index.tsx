@@ -1,16 +1,10 @@
 
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Index = () => {
-  const navigate = useNavigate();
-  
-  useEffect(() => {
-    // Redirect to auth page when landing on index
-    navigate('/');
-  }, [navigate]);
-  
-  return null;
+  // Directly return a Navigate component to redirect to the auth page
+  return <Navigate to="/" replace />;
 };
 
 export default Index;
